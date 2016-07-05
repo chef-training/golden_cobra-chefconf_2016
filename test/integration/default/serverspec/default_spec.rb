@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe 'golden_cobra::default' do
-  # Serverspec examples can be found at
-  # http://serverspec.org/resource_types.html
-  it 'does something' do
-    skip 'Replace this with meaningful tests'
+  describe command('curl localhost:8000') do
+    its(:stdout) { should match(/Congratulations on your first Django-powered page./) }
   end
 end
