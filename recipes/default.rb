@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: golden_cobra
+# Cookbook:: golden_cobra
 # Recipe:: default
 #
-# Copyright (c) 2016 The Authors, All Rights Reserved.
+# Copyright:: (c) 2016 The Authors, All Rights Reserved.
 
 execute 'yum update -y'
 
@@ -15,7 +15,7 @@ directory '/sites'
 
 package 'git'
 
-search('site','*:*').each do |site_data|
+search('site', '*:*').each do |site_data|
   site_name = site_data[:name]
   site_repository = site_data[:repository]
   site_bind = site_data[:bind]
