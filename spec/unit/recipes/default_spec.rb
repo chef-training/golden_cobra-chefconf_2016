@@ -1,19 +1,19 @@
 #
-# Cookbook Name:: golden_cobra
+# Cookbook:: golden_cobra
 # Spec:: default
 #
-# Copyright (c) 2016 The Authors, All Rights Reserved.
+# Copyright:: (c) 2016 The Authors, All Rights Reserved.
 
 require 'spec_helper'
 
 describe 'golden_cobra::default' do
   context 'When all attributes are default, on an unspecified platform' do
     let(:chef_run) do
-      runner = ChefSpec::ServerRunner.new do |node,server|
+      runner = ChefSpec::ServerRunner.new do |_node, server|
         server.create_data_bag('site', {
           'golden_cobra' => { 'name' => 'golden_cobra',
             'repository' => 'https://github.com/burtlo/golden_cobra.git',
-            'bind' => '127.0.0.1:8000'}
+            'bind' => '127.0.0.1:8000' },
           })
       end
       runner.converge(described_recipe)
